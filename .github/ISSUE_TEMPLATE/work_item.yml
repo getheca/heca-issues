@@ -1,0 +1,76 @@
+name: Work item
+description: A fully specified, implementation-ready task in the agent-takeover-grade format used by the main heca repository.
+title: "task: "
+labels: ["triage", "work-item"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Use this template only when you can specify the work completely. An agent or engineer picking up this issue must not need to ask follow-up questions or consult external context — inline any spec excerpts the work depends on.
+
+        For a plain bug or idea, use the Bug report or Feature request template instead.
+  - type: textarea
+    id: summary
+    attributes:
+      label: Summary
+      description: One or two sentences on what this work item delivers and why.
+    validations:
+      required: true
+  - type: textarea
+    id: spec-context
+    attributes:
+      label: Spec context
+      description: Self-contained background. Inline the relevant excerpts from design docs or prior issues so this issue stands alone.
+    validations:
+      required: true
+  - type: textarea
+    id: scope
+    attributes:
+      label: Scope
+      description: What is IN and what is OUT. Out-of-scope lines prevent scope creep during implementation.
+      placeholder: |
+        IN:
+        - ...
+
+        OUT:
+        - ...
+    validations:
+      required: true
+  - type: textarea
+    id: implementation-notes
+    attributes:
+      label: Implementation notes
+      description: Suggested approach, files or crates likely involved, known pitfalls, relevant conventions.
+    validations:
+      required: false
+  - type: textarea
+    id: acceptance-criteria
+    attributes:
+      label: Acceptance criteria
+      description: Checkable statements that define done. Each should be objectively verifiable.
+      placeholder: |
+        - [ ] ...
+        - [ ] ...
+    validations:
+      required: true
+  - type: textarea
+    id: dependencies
+    attributes:
+      label: Dependencies
+      description: Use "Depends on: #N" / "Blocks: #N" so relationships are machine-readable.
+      placeholder: |
+        Depends on: #
+        Blocks: #
+    validations:
+      required: false
+  - type: textarea
+    id: definition-of-done
+    attributes:
+      label: Definition of done
+      description: Beyond the acceptance criteria — tests added, docs updated, gates green, etc.
+      placeholder: |
+        - [ ] Tests cover the new behavior
+        - [ ] Docs updated where relevant
+        - [ ] Local gate passes
+    validations:
+      required: false

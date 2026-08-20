@@ -1,0 +1,59 @@
+name: Feature request
+description: Propose something heca should do that it does not do today.
+title: "feat: "
+labels: ["triage", "enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Describe the problem first, then the solution you have in mind. Problem-first requests are much easier to triage and design well.
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem
+      description: What are you trying to do, and what gets in the way today? Describe the workflow, not just the missing button.
+      placeholder: When I run a team of agents across two machines, I cannot ...
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed solution
+      description: How would you like heca to solve it? Rough ideas are fine.
+    validations:
+      required: true
+  - type: dropdown
+    id: surface
+    attributes:
+      label: Surface
+      description: Where would this feature live?
+      options:
+        - Desktop app
+        - Mobile app
+        - Web app
+        - CLI
+        - Daemon / orchestration
+        - Relay / remote access
+        - MCP integration
+        - Providers (claude / codex / grok / opencode / antigravity)
+        - Plugin system
+        - Other / not sure
+    validations:
+      required: true
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives and workarounds
+      description: What do you do today instead? Did you consider other approaches?
+    validations:
+      required: false
+  - type: dropdown
+    id: importance
+    attributes:
+      label: How important is this to you?
+      options:
+        - Blocking my daily workflow
+        - Significant friction, but I have a workaround
+        - Nice to have
+    validations:
+      required: true

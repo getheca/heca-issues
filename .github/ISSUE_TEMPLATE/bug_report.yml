@@ -1,0 +1,103 @@
+name: Bug report
+description: Something in heca is broken or behaving unexpectedly.
+title: "bug: "
+labels: ["triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for reporting. Fill in every field you can — a self-contained report gets triaged much faster.
+
+        **Redact before you paste.** Never include API keys, tokens, passwords, JWTs, pairing codes, or private paths in logs or screenshots. Replace them with `<REDACTED>`.
+  - type: input
+    id: version
+    attributes:
+      label: heca version
+      description: Nightly tag from the About screen or `heca --version`.
+      placeholder: 0.1.0-nightly-20260821-1
+    validations:
+      required: true
+  - type: dropdown
+    id: surface
+    attributes:
+      label: Surface
+      description: Where does the bug appear?
+      options:
+        - Desktop app (macOS)
+        - Desktop app (Linux)
+        - Desktop app (Windows)
+        - Mobile app (iOS)
+        - Mobile app (Android)
+        - Web app
+        - CLI (heca binary)
+        - Daemon / background behavior
+        - Relay / remote pairing
+        - MCP integration
+        - Other / not sure
+    validations:
+      required: true
+  - type: dropdown
+    id: provider
+    attributes:
+      label: Agent provider (if relevant)
+      description: Many behaviors differ per provider. Pick one if the bug involves a running agent.
+      options:
+        - Not provider-related
+        - claude
+        - codex
+        - grok
+        - opencode
+        - antigravity
+        - Multiple / cross-provider
+    validations:
+      required: false
+  - type: textarea
+    id: repro
+    attributes:
+      label: Steps to reproduce
+      description: Numbered steps starting from a clean state.
+      placeholder: |
+        1. Open the desktop app
+        2. Spawn a claude agent on a worktree
+        3. ...
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual behavior
+      description: What happens instead? Include exact error messages.
+    validations:
+      required: true
+  - type: dropdown
+    id: frequency
+    attributes:
+      label: How often does it happen?
+      options:
+        - Every time
+        - Often (more than half the time)
+        - Sometimes
+        - Happened once
+    validations:
+      required: true
+  - type: textarea
+    id: logs
+    attributes:
+      label: Logs / screenshots
+      description: Paste relevant log output or attach screenshots. REDACT secrets and private paths first.
+      render: text
+    validations:
+      required: false
+  - type: textarea
+    id: context
+    attributes:
+      label: Additional context
+      description: Anything else — recent changes, workarounds you found, whether it worked in an earlier nightly.
+    validations:
+      required: false
